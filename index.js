@@ -44,7 +44,7 @@ function getYears(array, getFinalsCB) {
     /* code here */
     return getFinalsCB(array).map(item => item.Year);
 }
-console.log(getYears(fifaData, getFinals))
+// console.log(getYears(fifaData, getFinals))
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Use the higher-order function getWinners to do the following:  
@@ -55,9 +55,9 @@ Use the higher-order function getWinners to do the following:
 
 function getWinners(array, getFinalsCB) {
     /* code here */
-    return getFinalsCB(array).map(item=> item['Home Team Goals'] > item ['Away Team Goals'] ? item['Home Team Name'] : item['Away Team Name']);
+    return getFinalsCB(array).map(item => item['Home Team Goals'] > item ['Away Team Goals'] ? item['Home Team Name'] : item['Away Team Name']);
 }
-// console.log(getWinners(fifaData, getFinals))
+console.log(getWinners(fifaData, getFinals))
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -70,9 +70,13 @@ Use the higher-order function getWinnersByYear to do the following:
 hint: the strings returned need to exactly match the string in step 4.
  */
 
-function getWinnersByYear(/* code here */) {
-    /* code here */
+function getWinnersByYear(array, getYearsCB, getFinalsCB) {
+    let years = getYearsCB(array);
+    let winners = getFinalsCB(array);
+    return array.map((_, i) => `In ${years[i]}, ${winners[i]} won the world cup!`);
 }
+console.log(getWinnersByYear);
+
 
 
 
